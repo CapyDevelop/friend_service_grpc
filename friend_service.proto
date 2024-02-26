@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package friend_service;
+
+service FriendService {
+  rpc add_friend(AddFriendRequest) returns (AddFriendResponse) {}
+  rpc get_friends(GetFriendsRequest) returns (GetFriendsResponse) {}
+  rpc remove_friend(RemoveFriendRequest) returns (RemoveFriendResponse) {}
+  rpc set_invite(SetInviteRequest) returns (SetInviteResponse) {}
+  rpc get_invites(GetInvitesRequest) returns (GetInvitesResponse) {}
+  rpc update_invite_status(UpdateInviteStatusRequest) returns (UpdateInviteStatusResponse) {}
+}
+
+message AddFriendRequest {
+  string peer_1 = 1;
+  string peer_2 = 2;
+}
+
+message AddFriendResponse {
+  bool success = 1;
+}
+
+message GetFriendsRequest {
+  string peer_1 = 1;
+}
+
+message GetFriendsResponse {
+  repeated string friends = 1;
+}
+
+message RemoveFriendRequest {
+  string peer_1 = 1;
+  string peer_2 = 2;
+}
+
+message RemoveFriendResponse {
+  bool success = 1;
+}
+
+message SetInviteRequest {
+  string peer_1 = 1;
+  string peer_2 = 2;
+}
+
+message SetInviteResponse {
+  bool success = 1;
+}
+
+message GetInvitesRequest {
+  string peer_1 = 1;
+}
+
+message GetInvitesResponse {
+  repeated string invites = 1;
+}
+
+message UpdateInviteStatusRequest {
+  string peer_1 = 1;
+  string peer_2 = 2;
+  bool status = 3;
+}
+
+message UpdateInviteStatusResponse {
+  bool success = 1;
+}
